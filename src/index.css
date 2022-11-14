@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.floatRight {
+  float: right;
+  margin-right: 5%;
+  margin-top: 3%;
+  max-height: 5%;
+}
+
+.searchBar {
+  margin-left: 30%;
+  width: 15%;
+}
+
+#navBar {
+  background-color: gray;
+}
+
+#homeImage {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.productImages {
+  max-height: 250px;
+  max-width: 250px;
+}

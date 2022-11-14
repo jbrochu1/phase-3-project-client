@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React , { useState , useEffect } from 'react';
+import { Switch ,  Route } from "react-router-dom"
+import NavBar from './components/NavBar';
 
 function App() {
+
+  const [cartItems, setCartItems] = useState([])
+  const [shown, setShown] = useState([])
+  const [allItems, setAllItems] = useState([])
+
+
+  fetch("")
+  .then(r => r.json())
+  .then(re => setAllItems(re))
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar allItems={allItems} setShown={setShown}/>
+
+      <Switch>
+
+        <Route path="/cart">
+
+        </Route>
+
+        <Route path="/">
+          <div>Im here</div>
+        </Route>
+
+      </Switch>
+
+
+
+    </>
   );
 }
 
