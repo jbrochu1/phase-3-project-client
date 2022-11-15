@@ -38,3 +38,21 @@ code {
   max-height: 250px;
   max-width: 250px;
 }
+
+.productCard{
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  border: solid gray;
+  display:inline-block;
+  margin: 5px;
+}
+
+.productName {
+  height: 50px;
+}
+
+.cardImage {
+  width: 200px;
+  height: 200px;
+}

@@ -12,42 +12,45 @@ function App() {
   const [allItems, setAllItems] = useState([])
 
 
-  fetch("")
-  .then(r => r.json())
-  .then(re => {
-    setAllItems(re)
-    setShown(re)
-  })
+
+    useEffect(() => {
+      fetch("http://localhost:9292/products")
+      .then(r => r.json())
+      .then(re => {
+        setAllItems(re)
+        setShown(re)
+      })
+    }, [])
 
   const productPages = allItems.map((item) => {
-    const path = "/" + item.name
+    const path = ("/" + item.id)
 
-    return(
-    <Route path={path}>
-      <ProductPage item={item}></ProductPage>
-    </Route>
+    return (
+      <>
+        <Route exact path={path} key={item.id}>
+          <ProductPage item={item}></ProductPage>
+        </Route>
+      </>
     )
   })
 
   return (
     <>
-      <NavBar allItems={allItems} setShown={setShown}/>
+      <NavBar allItems={allItems} setShown={setShown} cartItems={cartItems}/>
 
       <Switch>
 
-        {productPages}
-
-        <Route path="/cart">
+        <Route exact path="/cart">
           <Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>
         </Route>
 
-        <Route path="/">
+        <Route exact path="/">
           <Browse shown={shown} cartItems={cartItems} setCartItems={setCartItems}></Browse>
-          <div>Im here</div>
         </Route>
 
-      </Switch>
+        {productPages}
 
+      </Switch>
 
 
     </>

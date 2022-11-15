@@ -1,7 +1,16 @@
 import React from "react"
 
 
-function ProductPage ( {} ) {
+function ProductPage ( { item } ) {
+
+
+
+    return (
+        <>
+
+        </>
+    )
+
 
 }
 

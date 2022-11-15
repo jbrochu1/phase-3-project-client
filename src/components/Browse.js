@@ -1,30 +1,20 @@
-import React , { useState , useEffect } from "react"
+import React from "react"
 import ProductCard from "./ProductCard"
 
 function Browse ( { shown, cartItems , setCartItems } ){
 
     const shownCards = shown.map((item) =>{
-        <ProductCard item={item} cart={false}></ProductCard>
+       return (
+            <>
+                <ProductCard key={item.id} item={item} cart={false} setCartItems={setCartItems} cartItems={cartItems}></ProductCard>
+            </>
+       )
     })
 
-    function tableRows() {
-            for(let i=0; i < shownCards.length; i + 3) {
-                <tr>
-                    {shownCards[i]?<td>{shownCards[i]}</td>:<td/>}
-                    {shownCards[i+1]?<td>{shownCards[i+1]}</td>:<td/>}
-                    {shownCards[i+2]?<td>{shownCards[i+2]}</td>:<td/>}
-                </tr>
-            }
-
-    }
 
     return (
         <>
-        <table>
-            <tbody>
-                {tableRows()}
-            </tbody>
-        </table>
+                {shownCards}
         </>
     )
 
