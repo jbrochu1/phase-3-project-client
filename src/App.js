@@ -26,11 +26,9 @@ function App() {
     const path = ("/" + item.id)
 
     return (
-      <>
         <Route exact path={path} key={item.id}>
-          <ProductPage item={item}></ProductPage>
+          <ProductPage item={item} cartItems={cartItems} setCartItems={setCartItems}></ProductPage>
         </Route>
-      </>
     )
   })
 
