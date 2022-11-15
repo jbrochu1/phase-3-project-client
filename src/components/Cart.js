@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard"
 function Cart ( { cartItems , setCartItems } ) {
 
     const shownCards = cartItems.map((item) =>{
-        <ProductCard item={item} cat={true}></ProductCard>
+        <ProductCard item={item} cart={true}></ProductCard>
     })
 
     function tableRows() {
