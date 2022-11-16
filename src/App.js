@@ -53,7 +53,7 @@ function App() {
         </Route>
 
         <Route exact path="/cart">
-          <Cart cartItems={cartItems} setCartItems={setCartItems}></Cart>
+          <Cart cartItems={cartItems} setCartItems={setCartItems} currentUser={currentUser}></Cart>
         </Route>
 
         <Route exact path="/">

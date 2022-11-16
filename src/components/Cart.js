@@ -1,8 +1,50 @@
 import React from "react"
 import ProductCard from "./ProductCard"
 
-function Cart ( { cartItems , setCartItems } ) {
+function Cart ( { cartItems , setCartItems , currentUser} ) {
+    const quantity = 1
 
+    function purchase () {
+        const math = cartItems.map((cartI) => {
+            return (cartI.price * quantity)
+        })
+        function add(accumulator, a) {
+            return accumulator + a;
+          }
+        const filler = {
+            date: new Date(),
+            total: math.reduce(add, 0),
+            user_id: currentUser.id
+        }
+        fetch("http://localhost:9292/orders", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(filler)
+        })
+        .then(r => r.json())
+        .then(re => {
+
+            cartItems.forEach((cartI) => {
+                fetch("http://localhost:9292/opas", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    body: JSON.stringify( {
+                        order_id: re.id,
+                        product_id: cartI.id,
+                        quantity: quantity
+                        })
+                })
+            })
+        })
+
+        setCartItems([])
+    }
 
     const shownCards = cartItems.map((item) =>{
         return (
@@ -16,6 +58,7 @@ function Cart ( { cartItems , setCartItems } ) {
      return (
          <>
                  {shownCards}
+                 <button onClick={purchase}>Purchase</button>
          </>
      )
 
