@@ -95,9 +95,9 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems } ) {
                     <label htmlFor="image">Image</label><br></br>
                     <input
                         type="text"
-                        name="image"
+                        name="img"
                         onChange={handleChange}
-                        value={formData.image} />
+                        value={formData.img} />
                         <br></br><br></br>
 
                     <button type="submit">Add Product</button>
