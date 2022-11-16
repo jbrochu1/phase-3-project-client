@@ -18,11 +18,13 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     function handleDelete() {
         const filler = allItems.filter((itms) => itms !== item)
         const filler2 = shown.filter((itms) => itms !== item)
+        const filler3 = cartItems.filter((cart) => cart !== item)
         fetch(`http://localhost:9292/products/${item.id}`, {
             method : "DELETE"
         })
             setAllItems(filler)
             setShown(filler2)
+            setCartItems(filler3)
     }
 
     return (

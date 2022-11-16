@@ -16,6 +16,7 @@ function ProductPage ( { item, cartItems, setCartItems } ) {
         <div>
         <div className="productName">{item.name} {item.price} {item.description}</div>
             <img alt="" className="mainImage" src={item.img}/>
+            <div className="floatRight">{item.description}</div>
             <button onClick={add}>{"Add to Cart"}</button>
         </div>
         </>

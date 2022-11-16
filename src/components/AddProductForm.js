@@ -33,8 +33,9 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems } ) {
             },
             body: JSON.stringify({ ...formData })
         })
-            .then((resp) => resp.json())
-            .then((product) => {
+            .then((r) => r.json())
+                setAllItems([...allItems , formData])
+                setShown([...shown , formData])
                 setFormData({
                     name: "",
                     description: "",
@@ -42,7 +43,6 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems } ) {
                     price: "",
                     img: ""
                 });
-            });
     };
 
     return (
