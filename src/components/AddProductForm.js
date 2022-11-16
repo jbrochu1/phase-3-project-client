@@ -18,12 +18,12 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems } ) {
         )
      })
 
-    const handleChange = (e) => {
+    function handleChange (e) {
         const { name, value } = e.target;
         setFormData((formData) => ({ ...formData, [name]: value }));
     }
 
-    const handleSubmit = (e) => {
+    function handleSubmit (e) {
         e.preventDefault();
         fetch("http://localhost:9292/products", {
             method: "POST",
