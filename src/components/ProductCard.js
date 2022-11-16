@@ -10,7 +10,9 @@ function ProductCard ( { item, cart , cartItems , setCartItems} ) {
     }
 
     function add () {
-        setCartItems([...cartItems, item])
+        const filler = [...cartItems , item]
+        const filler2 = [...new Set(filler)]
+        setCartItems(filler2)
     }
 
     return (
