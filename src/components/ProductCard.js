@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-function ProductCard ( { item , cart , cartItems , setCartItems } ) {
+function ProductCard ( { item , cart , cartItems , setCartItems , admin , allItems, setAllItems , shown, setShown} ) {
 
     const path = ("/" + item.id)
 
@@ -15,6 +15,16 @@ function ProductCard ( { item , cart , cartItems , setCartItems } ) {
         setCartItems(filler2)
     }
 
+    function handleDelete() {
+        const filler = allItems.filter((itms) => itms !== item)
+        const filler2 = shown.filter((itms) => itms !== item)
+        fetch(`http://localhost:9292/products/${item.id}`, {
+            method : "DELETE"
+        })
+            setAllItems(filler)
+            setShown(filler2)
+    }
+
     return (
         <>
             <span className="productCard">
@@ -22,7 +32,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems } ) {
                 <Link to={path}>
                     <img alt="" className="cardImage" src={item.img}/>
                 </Link>
-                <button onClick={cart?remove:add}>{cart?"Remove From Cart":"Add to Cart"}</button>
+                {admin?(<button onClick={handleDelete}>Delete</button>):(<button onClick={cart?remove:add}>{cart?"Remove From Cart":"Add to Cart"}</button>)}
                 <br></br>
             </span>
         </>

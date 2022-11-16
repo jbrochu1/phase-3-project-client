@@ -63,3 +63,15 @@ code {
   margin-left: 20%;
   border: solid black 2px;
 }
+
+#inputForm{
+  border: solid black 2px;
+  text-align: center;
+  max-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  width: 70%;
+}
