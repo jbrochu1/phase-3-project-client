@@ -56,3 +56,10 @@ code {
   width: 200px;
   height: 200px;
 }
+
+.mainImage {
+  max-height: 500px;
+  float: left;
+  margin-left: 20%;
+  border: solid black 2px;
+}

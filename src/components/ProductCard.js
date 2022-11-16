@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-function ProductCard ( { item, cart , cartItems , setCartItems} ) {
+function ProductCard ( { item , cart , cartItems , setCartItems } ) {
 
     const path = ("/" + item.id)
 
