@@ -54,7 +54,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
                 <Link to={path}>
                     <img alt="" className="cardImage" src={item.img}/>
                 </Link>
-                {admin?(<>
+                {admin?(<>  <span>Supply: {item.supply}</span>
                             <input type="text" name="supply" onChange={submitChange} value={formData.supply}/>
                             <button onClick={handleSubmit}></button>
                             <br></br>
