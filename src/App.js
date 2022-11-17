@@ -32,7 +32,7 @@ function App() {
       .then(r=>r.json())
       .then(re => {
         setAllUsers(re)
-        setCurrentUser(re[0])
+        setCurrentUser(re[2])
       })
     }, [])
 
@@ -84,14 +84,14 @@ function App() {
           <Cart cartItems={cartItems} setCartItems={setCartItems} setAllOrders={setAllOrders} currentUser={currentUser} setAllItems={setAllItems} setShown={setShown}></Cart>
         </Route>
 
-        <Route exact path="/">
-          <Browse shown={shown} cartItems={cartItems} setCartItems={setCartItems}></Browse>
-        </Route>
-
         {productPages}
 
         {orderPages}
 
+        
+        <Route path="/">
+          <Browse shown={shown} cartItems={cartItems} setCartItems={setCartItems}></Browse>
+        </Route>
       </Switch>
 
 
