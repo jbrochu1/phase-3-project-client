@@ -8,7 +8,8 @@ function NavBar( { allItems , setShown , cartItems , allUsers , currentUser , se
     function handleChange(e) {
         setCurrentUser({
             name: `${e.target.value}`,
-            admin: (e.target.value ==="admin") ///needs rewriting eventually
+            admin: allUsers.find((user) => user.name === currentUser.name).admin,
+            id: allUsers.find((user) => user.name === currentUser.name).id
         })
     }
 
@@ -41,7 +42,7 @@ function NavBar( { allItems , setShown , cartItems , allUsers , currentUser , se
                 </select>
 
                 <input type="text" className="searchBar" onChange={handleInput} placeholder="Search..."/>
-
+                <Link to="/orderhistory"> Order History </Link>
                 <Link className="floatRight" to="/cart"> Cart ({cartItems.length})</Link>
 
                 {currentUser.admin ? <><Link to="/admin-inventory" className="floatRight"> Manage Inventory </Link> <br></br> </> : null}
