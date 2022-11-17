@@ -20,7 +20,6 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
         setAllItems(allItems.filter((itms) => itms !== item))
         setShown(shown.filter((itms) => itms !== item))
         //this filter is mad for some reason
-        const yes = 0
         setCartItems(cartItems.filter((itms) => itms !== item))
 
         fetch(`http://localhost:9292/products/${item.id}`, {
