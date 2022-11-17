@@ -49,7 +49,7 @@ function App() {
       <Switch>
 
         <Route exact path="/admin-inventory">
-          {currentUser.admin?<><AddProductForm shown={shown} setShown={setShown} allItems={allItems} setAllItems={setAllItems}></AddProductForm><br></br></>:<h1> This page is admin only. </h1>}
+          {currentUser.admin?<><AddProductForm shown={shown} setShown={setShown} allItems={allItems} setAllItems={setAllItems} cartItems={cartItems} setCartItems={setCartItems}></AddProductForm><br></br></>:<h1> This page is admin only. </h1>}
         </Route>
 
         <Route exact path="/cart">

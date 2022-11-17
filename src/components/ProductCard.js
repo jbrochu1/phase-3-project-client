@@ -6,7 +6,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     const path = ("/" + item.id)
 
     function remove() {
-        setCartItems(cartItems.filter((cartI) => cartI !== item))
+        setCartItems(cartItems.filter((cart) => cart !== item))
     }
 
     function add () {
@@ -16,11 +16,11 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     }
 
     function handleDelete() {
-
+        setCartItems(cartItems.filter((cart) => cart !== item))
         setAllItems(allItems.filter((itms) => itms !== item))
         setShown(shown.filter((itms) => itms !== item))
         //this filter is mad for some reason
-        setCartItems(cartItems.filter((itms) => itms !== item))
+
 
         fetch(`http://localhost:9292/products/${item.id}`, {
             method : "DELETE"

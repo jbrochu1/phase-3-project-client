@@ -2,7 +2,7 @@ import React , { useState } from "react"
 import ProductCard from "./ProductCard"
 
 
-function AddProductForm ( { shown , setShown , allItems , setAllItems } ) {
+function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItems , setCartItems} ) {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -14,7 +14,7 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems } ) {
 
     const shownCards = shown.map((item) =>{
         return (
-                <ProductCard key={item.id} item={item} cart={false} admin={true} shown={shown} setShown={setShown} allItems={allItems} setAllItems={setAllItems}></ProductCard>
+                <ProductCard key={item.id} item={item} cartItems={cartItems} setCartItems={setCartItems} admin={true} shown={shown} setShown={setShown} allItems={allItems} setAllItems={setAllItems}></ProductCard>
         )
      })
 
