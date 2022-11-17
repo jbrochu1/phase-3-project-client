@@ -11,10 +11,10 @@ export default function OrderHistory({currentUser, userOrders}) {
 
     return (
     <div>
-        <div className="grid grid-cols-3">
-            <p>a</p>
-            <p>a</p>
-            <p>a</p>
+        <div className="grid grid-cols-3 text-2xl">
+            <p>Order Number</p>
+            <p>Order Date</p>
+            <p>Order Total</p>
         </div>
         <div>{orders}</div>
     </div>
