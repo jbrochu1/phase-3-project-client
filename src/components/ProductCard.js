@@ -6,7 +6,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     const path = ("/" + item.id)
 
     function remove() {
-        setCartItems(cartItems.filter((cart) => cart !== item))
+        setCartItems(cartItems.filter((cartI) => cartI !== item))
     }
 
     function add () {
@@ -16,15 +16,17 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     }
 
     function handleDelete() {
-        const filler = allItems.filter((itms) => itms !== item)
-        const filler2 = shown.filter((itms) => itms !== item)
-        const filler3 = cartItems.filter((cartI) => cartI !== item)
+
+        setAllItems(allItems.filter((itms) => itms !== item))
+        setShown(shown.filter((itms) => itms !== item))
+        //this filter is mad for some reason
+        const yes = 0
+        setCartItems(cartItems.filter((itms) => itms !== item))
+
         fetch(`http://localhost:9292/products/${item.id}`, {
             method : "DELETE"
         })
-            setAllItems(filler)
-            setShown(filler2)
-            setCartItems(filler3)
+
     }
 
     const [formData, setFormData] = useState(item)

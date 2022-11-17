@@ -53,7 +53,7 @@ function Cart ( { cartItems , setCartItems , currentUser , setAllItems , setShow
                     .then(re => {
                         setAllItems(re)
                         setShown(re)
-                    })
+                })
             })
         })
 
