@@ -5,6 +5,8 @@ import Browse from "./components/Browse"
 import Cart from "./components/Cart"
 import ProductPage from "./components/ProductPage"
 import AddProductForm from './components/AddProductForm';
+import OrderHistory from './components/OrderHistory';
+
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
     })
   const [allItems, setAllItems] = useState([])
   const [allUsers, setAllUsers] = useState([])
+  const [userOrders, setUserOrders] = useState([])
 
     useEffect(() => {
       fetch("http://localhost:9292/products")
@@ -31,6 +34,16 @@ function App() {
         setCurrentUser(re[0])
       })
     }, [])
+
+    useEffect(() => {
+      fetch("http://localhost:9292/orders")
+        .then(r => r.json())
+        .then(re => {
+          setUserOrders(re)
+          
+        })
+    }, [currentUser])
+
 
   const productPages = allItems.map((item) => {
     const path = ("/" + item.id)
@@ -50,6 +63,10 @@ function App() {
 
         <Route exact path="/admin-inventory">
           {currentUser.admin?<><AddProductForm shown={shown} setShown={setShown} allItems={allItems} setAllItems={setAllItems} cartItems={cartItems} setCartItems={setCartItems}></AddProductForm><br></br></>:<h1> This page is admin only. </h1>}
+        </Route>
+
+        <Route exact path="/orderhistory">
+          <OrderHistory currentUser={currentUser} userOrders={userOrders} shown={shown} setShown={setShown}></OrderHistory>
         </Route>
 
         <Route exact path="/cart">
