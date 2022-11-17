@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import OrderCard from "./OrderCard"
-import OrderHistoryDetail from "./OrderHistoryDetail";
 
-export default function OrderHistory({currentUser, userOrders}) {
+export default function OrderHistory({currentUser, allOrders}) {
     
     
 
-    const orders = userOrders.filter((order) => order.user_id === currentUser.id).map((order) => 
+    const userOrders = allOrders.filter((order) => order.user_id === currentUser.id).map((order) => 
      <OrderCard key={order.id} order={order} />);
 
     return (
@@ -16,7 +15,7 @@ export default function OrderHistory({currentUser, userOrders}) {
             <p>Order Date</p>
             <p>Order Total</p>
         </div>
-        <div>{orders}</div>
+        <div>{userOrders}</div>
     </div>
     )
 

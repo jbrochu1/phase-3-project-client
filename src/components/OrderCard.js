@@ -4,7 +4,7 @@ export default function OrderCard({order}) {
 
 
 return (
-    <Link to={`/orders/${order.id}`} className="grid grid-cols-3">
+    <Link to={`/order/${order.id}`} className="grid grid-cols-3">
         <div>{order.id}</div>
         <div>{order.date}</div>
         <div>${order.total}</div>

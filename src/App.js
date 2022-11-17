@@ -19,7 +19,7 @@ function App() {
     })
   const [allItems, setAllItems] = useState([])
   const [allUsers, setAllUsers] = useState([])
-  const [userOrders, setUserOrders] = useState([])
+  const [allOrders, setAllOrders] = useState([])
 
     useEffect(() => {
       fetch("http://localhost:9292/products")
@@ -40,10 +40,10 @@ function App() {
       fetch("http://localhost:9292/orders")
         .then(r => r.json())
         .then(re => {
-          setUserOrders(re)
+          setAllOrders(re)
           
         })
-    }, [currentUser])
+    }, [])
 
 
   const productPages = allItems.map((item) => {
@@ -56,7 +56,7 @@ function App() {
     )
   })
 
-  const orderPages = userOrders.map((order) => {
+  const orderPages = allOrders.map((order) => {
     const path = ("/order/" + order.id)
 
     return (
@@ -77,11 +77,11 @@ function App() {
         </Route>
 
         <Route exact path="/orderhistory">
-          <OrderHistory currentUser={currentUser} userOrders={userOrders} shown={shown} setShown={setShown}></OrderHistory>
+          <OrderHistory currentUser={currentUser} allOrders={allOrders} shown={shown} setShown={setShown}></OrderHistory>
         </Route>
 
         <Route exact path="/cart">
-          <Cart cartItems={cartItems} setCartItems={setCartItems} currentUser={currentUser} setAllItems={setAllItems} setShown={setShown}></Cart>
+          <Cart cartItems={cartItems} setCartItems={setCartItems} setAllOrders={setAllOrders} currentUser={currentUser} setAllItems={setAllItems} setShown={setShown}></Cart>
         </Route>
 
         <Route exact path="/">

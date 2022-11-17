@@ -1,7 +1,7 @@
 import React from "react"
 import ProductCard from "./ProductCard"
 
-function Cart ( { cartItems , setCartItems , currentUser , setAllItems , setShown} ) {
+function Cart ( { cartItems , setCartItems , currentUser , setAllItems , setShown , setAllOrders } ) {
     const quantity = 1
 
     function purchase () {
@@ -54,6 +54,12 @@ function Cart ( { cartItems , setCartItems , currentUser , setAllItems , setShow
                         setAllItems(re)
                         setShown(re)
                 })
+                fetch("http://localhost:9292/orders")
+                    .then(r => r.json())
+                    .then(re => {
+                    setAllOrders(re)
+          
+        })
             })
         })
 

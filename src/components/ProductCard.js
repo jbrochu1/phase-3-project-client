@@ -53,7 +53,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     return (
         <>
             <span className="productCard">
-                <div className="font-sans">{item.name}<br></br>{item.price}</div>
+                <div className="font-sans">{item.name}<br></br>${item.price}0</div>
                 <Link to={path}>
                     <img alt="" className="cardImage" src={item.img}/>
                 </Link>
