@@ -17,20 +17,21 @@ code {
 }
 
 
-.floatRight {
+/* .floatRight {
   float: right;
   margin-right: 5%;
-  margin-top: 3%;
+  margin-top: 50%;
   max-height: 5%;
-}
+} */
 
-.searchBar {
+/* .searchBar {
   margin-left: 30%;
   width: 15%;
-}
+} */
 
 #navBar {
-  background-color: gray;
+  background-color: Red;
+  text-align: center
 }
 
 #homeImage {
@@ -47,14 +48,13 @@ code {
   text-align: center;
   width: 200px;
   height: 300px;
-  border: solid gray;
+  /* border: solid gray; */
   display:inline-block;
-  margin: 5px;
 }
 
-.productName {
+/* .productName {
   height: 50px;
-}
+} */
 
 .cardImage {
   width: 200px;
@@ -62,10 +62,9 @@ code {
 }
 
 .mainImage {
-  max-height: 500px;
+  max-height: 250px;
   float: left;
   margin-left: 20%;
-  border: solid black 2px;
 }
 
 #inputForm{

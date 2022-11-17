@@ -72,7 +72,7 @@ function Cart ( { cartItems , setCartItems , currentUser , setAllItems , setShow
      return (
          <>
                  {shownCards}
-                 <button onClick={purchase}>Purchase</button>
+                 <button className="rounded-full" onClick={purchase}>Purchase</button>
          </>
      )
 
