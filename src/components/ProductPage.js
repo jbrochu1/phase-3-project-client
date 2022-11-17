@@ -9,15 +9,18 @@ function ProductPage ( { item, cartItems, setCartItems } ) {
         setCartItems(filler2)
     }
 
-
+    // let sentence = `${item.name} for only a cheap price of: $${item.price} ${item.description}`
 
     return (
         <>
         <div>
-        <div className="productName">{item.name} {item.price} {item.description}</div>
+        <div>
+            <h1 className="text-center text-3xl"> {item.name}</h1>
+            <p className="float-right max-w-sm">{item.description}</p>
+        </div>
             <img alt="" className="mainImage" src={item.img}/>
-            <div className="floatRight">{item.description}</div>
-            <button onClick={add}>{"Add to Cart"}</button>
+            {/* <div className="">{item.description}</div> */}
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={add}>{"Add to Cart"}</button>
         </div>
         </>
     )

@@ -50,7 +50,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     return (
         <>
             <span className="productCard">
-                <div className="productName">{item.name}</div>
+                <div className="font-sans">{item.name}<br></br>{item.price}</div>
                 <Link to={path}>
                     <img alt="" className="cardImage" src={item.img}/>
                 </Link>
@@ -58,10 +58,8 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
                             <input type="text" name="supply" onChange={handleChange} value={formData.supply}/>
                             <button onClick={submitChange}></button>
                             <br></br>
-                            <button onClick={handleDelete}>Delete</button></>
-                        ):
-                            (<button onClick={cart?remove:add}>{cart?"Remove From Cart":"Add to Cart"}</button>)}
-                <br></br>
+                            <button onClick={handleDelete}>Delete</button></>):
+                            (<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={cart?remove:add}>{cart?"Remove From Cart":"Add to Cart"}</button>)}
             </span>
         </>
     )
