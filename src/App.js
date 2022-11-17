@@ -6,6 +6,7 @@ import Cart from "./components/Cart"
 import ProductPage from "./components/ProductPage"
 import AddProductForm from './components/AddProductForm';
 import OrderHistory from './components/OrderHistory';
+import OrderHistoryDetail from './components/OrderHistoryDetail';
 
 
 function App() {
@@ -55,6 +56,16 @@ function App() {
     )
   })
 
+  const orderPages = userOrders.map((order) => {
+    const path = ("/order/" + order.id)
+
+    return (
+        <Route exact path={path} key={order.id}>
+          <OrderHistoryDetail order={order}></OrderHistoryDetail>
+        </Route>
+    )
+  })
+
   return (
     <>
       <NavBar allItems={allItems} setShown={setShown} cartItems={cartItems} allUsers={allUsers} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
@@ -78,6 +89,8 @@ function App() {
         </Route>
 
         {productPages}
+
+        {orderPages}
 
       </Switch>
 

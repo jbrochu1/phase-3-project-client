@@ -8,11 +8,11 @@ function NavBar( { allItems , setShown , cartItems , allUsers , currentUser , se
     function handleChange(e) {
         setCurrentUser({
             name: `${e.target.value}`,
-            admin: allUsers.find((user) => user.name === currentUser.name).admin,
-            id: allUsers.find((user) => user.name === currentUser.name).id
+            id: allUsers.find((user) => user.name === e.target.value).id,
+            admin: allUsers.find((user) => user.name === e.target.value).admin?true:false
         })
     }
-
+    
     function handleInput(e) {
         setSearch(e.target.value)
     }
