@@ -1,7 +1,7 @@
 import React from "react"
 import ProductCard from "./ProductCard"
 
-function Cart ( { cartItems , setCartItems , currentUser} ) {
+function Cart ( { cartItems , setCartItems , currentUser , setAllItems , setShown} ) {
     const quantity = 1
 
     function purchase () {
@@ -40,14 +40,20 @@ function Cart ( { cartItems , setCartItems , currentUser} ) {
                         quantity: quantity
                         })
                 })
-                fetch(`http://localhost:9292/products/${item.id}`, {
-                    method: "patch",
+                fetch(`http://localhost:9292/products/${cartI.id}`, {
+                    method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
                         Accept: "application/json"
                     },
-                    body: JSON.stringify({ ...item, supply: (item.supply - 1) })
+                    body: JSON.stringify({ ...cartI, supply: (cartI.supply - 1) })
                 })
+                fetch("http://localhost:9292/products")
+                    .then(r => r.json())
+                    .then(re => {
+                        setAllItems(re)
+                        setShown(re)
+                    })
             })
         })
 

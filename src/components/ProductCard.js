@@ -18,7 +18,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     function handleDelete() {
         const filler = allItems.filter((itms) => itms !== item)
         const filler2 = shown.filter((itms) => itms !== item)
-        const filler3 = cartItems.filter((cart) => cart !== item)
+        const filler3 = cartItems.filter((cartI) => cartI !== item)
         fetch(`http://localhost:9292/products/${item.id}`, {
             method : "DELETE"
         })
@@ -28,6 +28,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
     }
 
     const [formData, setFormData] = useState(item)
+    const [supply, setSupply] = useState(item.supply)
 
     function handleChange (e) {
         e.preventDefault()
@@ -35,16 +36,17 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
         setFormData((formData) => ({ ...formData, [name]: value }));
     }
 
-    function submitChange (e) {
+    function changeSupply (e) {
         e.preventDefault()
         fetch(`http://localhost:9292/products/${item.id}`, {
-            method: "patch",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json"
             },
             body: JSON.stringify({ ...formData })
         })
+        setSupply(formData.supply)
     }
 
     return (
@@ -54,9 +56,9 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
                 <Link to={path}>
                     <img alt="" className="cardImage" src={item.img}/>
                 </Link>
-                {admin?(<>  <span>Supply: {item.supply}</span>
+                {admin?(<>  <span>Supply: {supply}</span>
                             <input type="number" name="supply" onChange={handleChange} value={formData.supply}/>
-                            <button onClick={submitChange}></button>
+                            <button onClick={changeSupply}>Change Supply</button>
                             <br></br>
                             <button onClick={handleDelete}>Delete</button></>
                         ):
