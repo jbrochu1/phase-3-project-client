@@ -54,10 +54,14 @@ export default function NavBar( { allItems , setShown , cartItems , allUsers , c
                                </option>
                                ))}
                        </select>
-                       {currentUser.admin ? <><Link to="/admin-inventory" className="floatRight"> Manage Inventory </Link> <br></br> </> : null}
+                       
   </ul>
 </div>
     <a><Link to="/"className="btn btn-ghost normal-case color Red">Flatiron Fire Supplies</Link></a> 
+  </div>
+    {currentUser.admin ? <><Link to="/admin-inventory" className="btn btn-ghost normal-case color Red"> Manage Inventory </Link> <br></br> </> : null}
+  <div>
+
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">
