@@ -2,7 +2,7 @@ import React , { useState , useEffect } from "react"
 import { Link } from "react-router-dom"
 
 
-function NavBar( { allItems , setShown , cartItems , allUsers , currentUser , setCurrentUser } ) {
+export default function NavBar( { allItems , setShown , cartItems , allUsers , currentUser , setCurrentUser, admin } ) {
 
     const [search, setSearch] = useState("")
 
@@ -28,38 +28,48 @@ function NavBar( { allItems , setShown , cartItems , allUsers , currentUser , se
         }, [search])
 
         let Logo = require('../flatiron-fire-supplies-high-resolution-color-logo.png');
+        
+        return (
 
-return(
- <>
-    <div id="navBar">
-        <div className="inline-block relative w-64">
-            <Link to="/" ><img id="homeImage" alt="home" src={Logo}/></Link>
-                <select onChange={handleChange} className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-{allUsers.map((user) => (
-                    <option key={user.name} multiple={true} value={user.name}>
-                            {user.name}
-                        </option>
-                        ))}
-                </select>
-
-                <input type="text" className="searchBar" onChange={handleInput} placeholder="Search..."/>
-                <Link to="/orderhistory"> Order History </Link>
-                         
-                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                    </div>
-                </div>
-                    <form className="w-full max-w-sm">
-                        <div className="text-center border-b border-teal-500 py-2">
-                        <input type="text" onChange={handleInput} className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none text-center" placeholder="Search..." aria-label="Full name">
-                         </input>
-                    </div>
-                </form>
-                <Link className="floatRight" to="/cart"> Cart ({cartItems.length})</Link>
-                {currentUser.admin ? <><Link to="/admin-inventory" className="floatRight"> Manage Inventory </Link> <br></br> </> : null}
-            </div>
-        </>
-    )
-}
-
-export default NavBar
+            <div className="navbar bg-base-100">
+  <div className="navbar-start">
+    <div className="dropdown">
+      <label tabIndex={0} className="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+      <li><a><Link to="/orderhistory"> Order History</Link></a></li>
+        <li><a><Link className="floatRight" to="/cart"> Cart ({cartItems.length})</Link></a></li>
+      </ul>
+    </div>
+  </div>
+  <div className="navbar-center">
+  <div className="dropdown">
+  <label tabIndex={0} className="btn m-1">Choose User</label>
+  <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+    <select onChange={handleChange}>
+        {allUsers.map((user) => (
+                           <option key={user.name} multiple={true} value={user.name}>
+                                   {user.name}
+                               </option>
+                               ))}
+                       </select>
+                       {currentUser.admin ? <><Link to="/admin-inventory" className="floatRight"> Manage Inventory </Link> <br></br> </> : null}
+  </ul>
+</div>
+    <a><Link to="/"className="btn btn-ghost normal-case color Red">Flatiron Fire Supplies</Link></a> 
+  </div>
+  <div className="navbar-end">
+    <button className="btn btn-ghost btn-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+      <input type="text" className="searchBar" onChange={handleInput} placeholder="Search..."/>
+    </button>
+    <button className="btn btn-ghost btn-circle">
+      <div className="indicator">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+        <span className="badge badge-xs badge-primary indicator-item"></span>
+      </div>
+    </button>
+  </div>
+</div>
+)}
