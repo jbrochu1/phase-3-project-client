@@ -51,9 +51,9 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
                 <form className="border border-red w-1/2 " autoComplete="off" onSubmit={handleSubmit}>
                     <h3 className="text-xl text-center">Add New Product</h3>
 
-                    <label htmlFor="name">Name</label><br></br>
+                    <label className="ml-10" htmlFor="name">Name</label><br></br>
                     <input
-                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-10 mb-2 ml-10 leading-tight focus:outline-none focus:bg-white"
                         type="text"
                         name="name"
                         onChange={handleChange}
@@ -61,9 +61,9 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
                     />
                     <br></br>
 
-                    <label htmlFor="description">Description</label><br></br>
+                    <label className="ml-10" htmlFor="description">Description</label><br></br>
                     <input
-                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-10 mb-2 ml-10 leading-tight focus:outline-none focus:bg-white"
                         type="text"
                         name="description"
                         onChange={handleChange}
@@ -71,9 +71,9 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
                     />
                     <br></br>
 
-                    <label htmlFor="category">Category</label><br></br>
+                    <label className="ml-10" htmlFor="category">Category</label><br></br>
                     <select
-                        className="border bg-gray-200 w-1/4 border-red-500 rounded py-1 px-2 mb-2"
+                        className="border bg-gray-200 w-1/4 border-red-500 rounded py-1 px-10 mb-2 ml-10"
                         name="category"
                         onChange={handleChange}
                         value={formData.type}
@@ -86,9 +86,9 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
                     </select>
                     <br></br>
 
-                    <label htmlFor="price">Price</label><br></br>
+                    <label className="ml-10" htmlFor="price">Price</label><br></br>
                     <input
-                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 ml-10 leading-tight focus:outline-none focus:bg-white"
                         type="number"
                         name="price"
                         onChange={handleChange}
@@ -96,9 +96,9 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
                     />
                     <br></br>
 
-                    <label htmlFor="image">Image</label><br></br>
+                    <label className="ml-10" htmlFor="image">Image</label><br></br>
                     <input
-                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 ml-10 leading-tight focus:outline-none focus:bg-white"
                         type="text"
                         name="img"
                         onChange={handleChange}
