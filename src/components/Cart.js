@@ -12,8 +12,8 @@ function Cart ( { cartItems , setCartItems , currentUser , setAllItems , setShow
             return accumulator + a;
           }
         const filler = {
-            date: new Date(),
-            total: math.reduce(add, 0),
+            date: new Date().toLocaleDateString("en-US"),
+            total: math.reduce(add, 0).toFixed(2),
             user_id: currentUser.id
         }
         fetch("http://localhost:9292/orders", {

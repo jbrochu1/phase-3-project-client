@@ -14,8 +14,8 @@ export default function OrderHistory({currentUser, allOrders}) {
      <OrderCard key={order.id} order={order} />);
     }
     return (
-    <div>
-        <div className="grid grid-cols-3 text-2xl">
+    <div className="text-center">
+        <div className="grid grid-cols-3 text-2xl bg-red-50 rounded-xl shadow lg p-5">
             <p>Order Number</p>
             <p>Order Date</p>
             <p>Order Total</p>
