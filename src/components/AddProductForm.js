@@ -46,13 +46,14 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
     };
 
     return (
-        <>
-            <div id="inputForm">
-                <form className="form" autoComplete="off" onSubmit={handleSubmit}>
-                    <h3>Add New Product</h3>
+        <div>
+            <div className="flex flex-col justify-center items-center" id="inputForm">
+                <form className="border border-red w-1/2 " autoComplete="off" onSubmit={handleSubmit}>
+                    <h3 className="text-xl text-center">Add New Product</h3>
 
                     <label htmlFor="name">Name</label><br></br>
                     <input
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
                         type="text"
                         name="name"
                         onChange={handleChange}
@@ -62,15 +63,17 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
 
                     <label htmlFor="description">Description</label><br></br>
                     <input
-                    type="text"
-                    name="description"
-                    onChange={handleChange}
-                    value={formData.descrption}
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
+                        type="text"
+                        name="description"
+                        onChange={handleChange}
+                        value={formData.descrption}
                     />
                     <br></br>
 
                     <label htmlFor="category">Category</label><br></br>
                     <select
+                        className="border bg-gray-200 w-1/4 border-red-500 rounded py-1 px-2 mb-2"
                         name="category"
                         onChange={handleChange}
                         value={formData.type}
@@ -85,6 +88,7 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
 
                     <label htmlFor="price">Price</label><br></br>
                     <input
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
                         type="number"
                         name="price"
                         onChange={handleChange}
@@ -94,18 +98,23 @@ function AddProductForm ( { shown , setShown , allItems , setAllItems , cartItem
 
                     <label htmlFor="image">Image</label><br></br>
                     <input
+                        className="appearance-none w-3/4 bg-gray-200 text-gray-700 border border-red-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white"
                         type="text"
                         name="img"
                         onChange={handleChange}
                         value={formData.img} />
                         <br></br><br></br>
 
-                    <button type="submit">Add Product</button>
+                    <div className="flex flex-col items-center">
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add Product</button>
+                    </div>
                     <br></br><br></br>
                 </form>
             </div>
-            {shownCards}
-        </>
+            <div className="p-10">
+                {shownCards}
+            </div>
+        </div>
     );
 };
 

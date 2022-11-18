@@ -14,9 +14,9 @@ function ProductPage ( { item, cartItems, setCartItems } ) {
     return (
         <>
         <div>
-        <div>
-            <h1 className="text-center text-3xl"> {item.name}</h1>
-            <p className="float-right max-w-sm">{item.description}</p>
+        <div className="text-center">
+            <p className="text-center text-3xl"> {item.name}</p>
+            <p className="">{item.description}</p>
         </div>
             <img alt="" className="mainImage" src={item.img}/>
             {/* <div className="">{item.description}</div> */}

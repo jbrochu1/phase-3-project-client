@@ -52,18 +52,18 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
 
     return (
         <>
-            <span className="productCard">
-                <div className="font-sans">{item.name}<br></br>${item.price}0</div>
+            <div className="w-1/4 inline-block p-3 shadow gap-2">
+                <div className="font-sans p-1 text-center">{item.name}<br></br>${item.price}0</div>
                 <Link to={path}>
                     <img alt="" className="cardImage" src={item.img}/>
                 </Link>
                 {admin?(<>  <span>Supply: {supply}</span>
-                            <input type="number" name="supply" onChange={handleChange} value={formData.supply}/>
-                            <button onClick={changeSupply}>Change Supply</button>
+                            <input className="border border-red-500 w-1/4 rounded text-center" type="number" name="supply" onChange={handleChange} value={formData.supply}/>
+                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={changeSupply}>Change Supply</button>
                             <br></br>
-                            <button onClick={handleDelete}>Delete</button></>):
+                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={handleDelete}>Delete</button></>):
                             (<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={cart?remove:add}>{cart?"Remove From Cart":"Add to Cart"}</button>)}
-            </span>
+            </div>
         </>
     )
 
