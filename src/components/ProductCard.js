@@ -52,7 +52,7 @@ function ProductCard ( { item , cart , cartItems , setCartItems , admin , allIte
 
     return (
         <>
-            <div className="w-1/4 inline-block p-3 shadow gap-2">
+            <div className="inline-block p-3 shadow-xl gap-2">
                 <div className="font-sans p-1 text-center">{item.name}<br></br>${item.price}0</div>
                 <Link to={path}>
                     <img alt="" className="cardImage" src={item.img}/>
